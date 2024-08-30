@@ -1,20 +1,61 @@
-﻿// HW18.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+//#include <string>
+#include <vector>
+template<typename T>
 
-#include <iostream>
+class Stack
+{
+private:
+	std::vector<T> v;
+public:
+	void push(T);
+	void pop();
+	void show();
+	void top();
+};
+
+template<class T> void Stack<T>::push(T elem)
+{
+	v.push_back(elem);
+	std::cout << "Pushed element is: " << v.back() << "\n";
+	
+}
+template<class T> void Stack<T>::pop()
+{
+	std::cout << "Poped element is: " << v.back() << "\n";
+	v.pop_back();
+	 
+}
+template<class T> void Stack<T>::show()
+{
+	std::cout << "Your stack: " << "\n";
+	for (auto a : v) std::cout << a << " ";
+	std::cout << "\n";
+}
+template<class T> void Stack<T>::top() 
+{
+	std::cout << "Last element is: " << v.back() << "\n";
+}
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Stack <int> k;
+	k.push(1);
+	k.push(2);
+	k.push(3);
+	k.show();
+	k.top();
+	k.pop();
+	k.show();
+
+	Stack<float> f;
+	f.push(1.f);
+	f.push(4.f);
+	f.push(67.f);
+	f.show();
+	f.pop();
+	f.show();
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
